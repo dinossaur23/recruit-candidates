@@ -1,3 +1,4 @@
 class Vacancy < ApplicationRecord
-  has_many :candidates
+  has_many :applications
+  has_many :candidates, through: :applications
 end

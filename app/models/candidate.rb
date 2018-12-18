@@ -1,3 +1,4 @@
 class Candidate < ApplicationRecord
-  belongs_to :vacancy
+  has_many :applications
+  has_many :vacancies, through: :applications
 end
