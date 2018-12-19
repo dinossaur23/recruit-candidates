@@ -1,3 +1,15 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  namespace 'api' do
+    namespace :v1 do
+      # Candidates
+      post 'pessoas', to: 'candidates#create'
+
+      # Vacancies
+      post 'vagas', to: 'vacancies#create'
+      get 'vagas/:id', to: 'vacancies#show'
+
+      # Candidacies
+      post 'candidaturas', to: 'candidacies#create'
+    end
+  end
 end
