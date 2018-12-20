@@ -6,10 +6,10 @@ Rails.application.routes.draw do
 
       # Vacancies
       post 'vagas', to: 'vacancies#create'
-      get 'vagas/:id', to: 'vacancies#show'
 
       # Candidacies
       post 'candidaturas', to: 'candidacies#create'
+      get 'vagas/:id/candidaturas/ranking', to: 'candidacies#ranking'
     end
   end
 end

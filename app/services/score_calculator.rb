@@ -1,5 +1,5 @@
 class ScoreCalculator
-  MAX_VALUE = 1 << 32 #Float::INFINITY
+  MAX_VALUE = Float::INFINITY
   VERTICES = 6
   NODES = [1, 2, 3, 4, 5, 6] # number of NODES
   GRAPH = [[1, 2, 5],

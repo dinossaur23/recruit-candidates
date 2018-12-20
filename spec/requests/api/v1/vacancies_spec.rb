@@ -17,7 +17,7 @@ RSpec.describe 'Vacancies API', type: :request do
       before { post vacancies_url, params: vacancy_attributes }
 
       it 'creates a candidate' do
-        expect(json['company']).to eq("Teste")
+        expect(json['empresa']).to eq("Teste")
       end
 
       it 'returns the status code 201' do
@@ -35,31 +35,6 @@ RSpec.describe 'Vacancies API', type: :request do
       it 'returns a validation failure message' do
         expect(response.body)
           .to match("{\"description\":[\"can't be blank\"],\"level\":[\"can't be blank\"]}")
-      end
-    end
-  end
-
-  # TODO: improve to returns as requested
-  describe 'GET /api/v1/vagas/:id' do
-    before { get "/api/v1/vagas/#{vacancy_id}" }
-    let!(:vacancy_id) { create(:vacancy).id }
-
-    context 'when the record exists' do
-      it 'returns the vacancy' do
-        expect(json).not_to be_empty
-        expect(json['company']).to eq("Teste 2")
-      end
-
-      it 'returns status code 200' do
-        expect(response).to have_http_status(200)
-      end
-    end
-
-    context 'when the record does not exist' do
-      let(:vacancy_id) { 0 }
-
-      it 'returns status code 404' do
-        expect(response).to have_http_status(404)
       end
     end
   end

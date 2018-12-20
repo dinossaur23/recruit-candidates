@@ -17,15 +17,6 @@ class API::V1::VacanciesController < ApplicationController
     end
   end
 
-  # TODO: improve to returns as requested
-  def show
-    if @vacancy
-      render json: @vacancy
-    else
-      head :not_found
-    end
-  end
-
    private
 
    def set_vacancy
