@@ -19,5 +19,10 @@ RSpec.describe Candidate, type: :model do
       candidate.profession = nil
       expect(candidate).to_not be_valid
     end
+
+    it 'is not valid with invalid location' do
+      candidate.location = "U"
+      expect(candidate).to_not be_valid
+    end
   end
 end
