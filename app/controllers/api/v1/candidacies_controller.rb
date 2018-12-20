@@ -1,9 +1,19 @@
 class API::V1::CandidaciesController < ApplicationController
   before_action :set_vacancy, :set_candidate, only: :create
 
+  # TODO: extract logic to service
   def create
     if @vacancy && @candidate
-      candidacy = Candidacy.new(vacancy: @vacancy, candidate: @candidate)
+      candidacy = Candidacy.new(
+        vacancy: @vacancy,
+        candidate: @candidate,
+        score: ScoreCalculator.calculate(
+          @candidate.level,
+          @vacancy.level,
+          @candidate.location,
+          @vacancy.location
+        )
+      )
 
       if candidacy.save
         render json: candidacy, status: :created
