@@ -1,5 +1,5 @@
-class API::V1::CandidatesSerializer < ActiveModel::Serializer
-  attributes :id, :nome, :profissao, :descricao, :localizacao, :nivel
+class API::V1::CandidateSerializer < ActiveModel::Serializer
+  attributes :id, :nome, :profissao, :localizacao, :nivel
 
   def nome
     object.name
