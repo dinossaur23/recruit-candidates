@@ -30,7 +30,7 @@ $ rails server
 ```
 
 ## Ruby version
-2.3.3
+2.4.4
 
 ## API Documentation
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/collections/8637fea9add90554f613)
